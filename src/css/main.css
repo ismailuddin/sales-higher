@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#header {
+    background-size: 120vw;
+    background-position-y: bottom;
+    background-position-x: right;
+    background-repeat: no-repeat;
+    background-image: url(../img/main.svg);
+}
+
+@media screen and (min-width: 768px) {
+    #header {
+        background-size: 75vw;
+        background-position-y: bottom;
+        background-position-x: right;
+        background-repeat: no-repeat;
+        background-image: url(../img/main.svg);
+    }
+}

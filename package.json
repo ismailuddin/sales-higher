@@ -1,0 +1,16 @@
+{
+  "name": "saleshigher-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve & npx tailwindcss -i ./src/css/main.css -o ./_site/css/main.css --watch",
+    "eleventy": "npx tailwindcss -i ./src/css/main.css -o ./_site/css/main.css && eleventy"
+  },
+  "keywords": [],
+  "author": "ismailuddin",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
