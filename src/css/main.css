@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-#header {
+[x-cloak] {
+    display: none !important;
+}
+
+#header.hero-image {
     background-size: 120vw;
     background-position-y: bottom;
     background-position-x: right;
@@ -11,7 +15,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    #header {
+    #header.hero-image {
         background-size: 75vw;
         background-position-y: bottom;
         background-position-x: right;

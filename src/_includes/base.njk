@@ -9,8 +9,84 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-    <p class="text-lg font-thin">
-        {{ content | safe }}
-    </p>
+    <section
+        id="header"
+        class="relative bg-primary"
+    >
+        <nav x-data="{ open: false }" class="z-20 px-8 py-8 mx-auto md:container">
+            <div class="flex justify-between">
+                <a href="/">
+                    <div id="logo">
+                        <h1 class="text-3xl text-white">
+                            Sales<span class="font-extrabold">Higher</span> 
+                        </h1>
+                    </div>
+                </a>
+                <div class="block md:hidden">
+                    <button @click="open = ! open">
+                        <div class="flex-row justify-between w-8 h-8 space-y-3">
+                            <div class="w-full border border-b border-white"></div>
+                            <div class="w-full border border-b border-white"></div>
+                            <div class="w-full border border-b border-white"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="items-center hidden md:flex">
+                    <ul class="flex space-x-12 text-lg font-light">
+                        <li class="transition-colors duration-300 text-white/50 hover:text-white/100">
+                            <a href="/">Why SalesHigher?</a>
+                        </li>
+                        <li class="transition-colors duration-300 text-white/50 hover:text-white/100">
+                            <a href="#">How we vet</a>
+                        </li>
+                        <li class="transition-colors duration-300 text-white/50 hover:text-white/100">
+                            <a href="#">Pricing</a>
+                        </li>
+                        <li class="transition-colors duration-300 text-white/50 hover:text-white/100">
+                            <a href="/faq">FAQ</a>
+                        </li>
+                        <li class="transition-colors duration-300 text-white/50 hover:text-white/100">
+                            <a href="#">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="absolute left-0 w-full px-6 py-2 border-t border-b shadow-lg top-24 bg-primary/75 backdrop-blur-lg border-white/25"
+                x-show="open"
+                x-cloak
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 -translate-y-10"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 -translate-y-10"
+            >
+                <ul class="flex-row my-3 space-y-3 text-lg font-light">
+                    <li class="text-white transition-colors duration-300">
+                        <a href="#">Why SalesHigher?</a>
+                    </li>
+                    <li class="text-white transition-colors duration-300">
+                        <a href="#">How we vet</a>
+                    </li>
+                    <li class="text-white transition-colors duration-300">
+                        <a href="#">Pricing</a>
+                    </li>
+                    <li class="text-white transition-colors duration-300">
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li class="text-white transition-colors duration-300">
+                        <a href="#">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section>
+        <div class="container px-6 py-6 mx-auto md:px-0 md:w-8/12 md:py-12">
+            {% block content %}{% endblock %}
+        </div>
+    </section>
+    {% include "footer.njk" %}
 </body>
 </html>
