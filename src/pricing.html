@@ -1,0 +1,77 @@
+{% extends "base.njk" %}
+{% block content %}
+
+
+<div class="flex justify-center w-full mb-6">
+    <h1 class="mx-auto inline-block pb-2 mb-2 font-extrabold border-b-[10px] border-yellow-400 text-7xl">
+        Pricing
+    </h1>
+</div>
+<section>
+    <div class="container mx-auto">
+        <p class="text-lg font-light leading-relaxed text-center">
+            View our pricing plans below.
+        </p>
+        <div class="grid grid-cols-1 gap-8 my-8 md:grid-cols-3">
+            <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
+                <div class="flex-grow p-6">
+                    <h3 class="mb-4 text-5xl font-extrabold">Startup</h3>
+                    <ul class="ml-4 space-y-1 list-disc">
+                        <li>One project</li>
+                        <li>One hire</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-100">
+                    <div class="text-3xl font-bold">
+                        $499 <span class="text-base font-normal">/month</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">or</p>
+                    <div class="text-3xl font-bold">
+                        $333-3,996 <br><span class="text-base font-normal">yearly / upfront</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
+                <div class="p-6">
+                    <h3 class="mb-4 text-5xl font-extrabold leading-none">Growth <br><span class="px-2 py-1 text-sm bg-yellow-300 rounded-full">Most popular</span></h3>
+                    <ul class="ml-4 space-y-1 list-disc">
+                        <li>3 projects</li>
+                        <li>3 hires</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-100">
+                    <div class="text-3xl font-bold">
+                        $749 <span class="text-base font-normal">/month</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">or</p>
+                    <div class="text-3xl font-bold">
+                        $500-6,000 <br><span class="text-base font-normal">yearly / upfront</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
+                <div class="p-6">
+                    <h3 class="mb-4 text-5xl font-extrabold leading-none">Enterprise</h3>
+                    <ul class="ml-4 space-y-1 list-disc">
+                        <li>Unlimited projects</li>
+                        <li>Unlimited hires</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-gray-100">
+                    <div class="text-3xl font-bold">
+                        $1,499 <span class="text-base font-normal">/month</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">or</p>
+                    <div class="text-3xl font-bold">
+                        $1050-12,600 <br><span class="text-base font-normal">yearly / upfront</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
