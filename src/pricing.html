@@ -12,60 +12,120 @@
         <p class="text-lg font-light leading-relaxed text-center">
             View our pricing plans below.
         </p>
-        <div class="grid grid-cols-1 gap-8 my-8 md:grid-cols-3">
-            <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
-                <div class="flex-grow p-6">
-                    <h3 class="mb-4 text-5xl font-extrabold">Startup</h3>
-                    <ul class="ml-4 space-y-1 list-disc">
-                        <li>One project</li>
-                        <li>One hire</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-gray-100">
-                    <div class="text-3xl font-bold">
-                        $499 <span class="text-base font-normal">/month</span>
+        <div x-data="{ mode: 'yearly' }">
+            <div class="flex justify-center my-4">
+                <div class="inline-flex">
+                    <div class="flex border-4 border-gray-200">
+                        <div
+                            @click="mode = 'monthly'"
+                            x-bind:class="mode == 'monthly' ? 'bg-primary text-white' : ''"
+                            class="px-4 py-2 font-extrabold uppercase cursor-pointer"
+                        >
+                            Monthly
+                        </div>
+                        <div
+                            @click="mode = 'yearly'"
+                            x-bind:class="mode == 'yearly' ? 'bg-primary text-white' : ''"
+                            class="px-4 py-2 font-extrabold uppercase cursor-pointer"
+                        >
+                            Yearly
+                        </div>
                     </div>
-                    <p class="text-sm leading-relaxed">or</p>
-                    <div class="text-3xl font-bold">
-                        $333-3,996 <br><span class="text-base font-normal">yearly / upfront</span>
-                    </div>
                 </div>
+
             </div>
-            <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
-                <div class="p-6">
-                    <h3 class="mb-4 text-5xl font-extrabold leading-none">Growth <br><span class="px-2 py-1 text-sm bg-yellow-300 rounded-full">Most popular</span></h3>
-                    <ul class="ml-4 space-y-1 list-disc">
-                        <li>3 projects</li>
-                        <li>3 hires</li>
-                        <li>Priority support</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-gray-100">
-                    <div class="text-3xl font-bold">
-                        $749 <span class="text-base font-normal">/month</span>
+            <div class="grid grid-cols-1 gap-8 my-8 md:grid-cols-3">
+                <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
+                    <div class="flex-grow p-6">
+                        <h3 class="mb-4 text-5xl font-extrabold">Startup</h3>
+                        <ul class="ml-4 space-y-1 list-disc">
+                            <li>One project</li>
+                            <li>One hire</li>
+                        </ul>
                     </div>
-                    <p class="text-sm leading-relaxed">or</p>
-                    <div class="text-3xl font-bold">
-                        $500-6,000 <br><span class="text-base font-normal">yearly / upfront</span>
+                    <div class="p-6 bg-gray-100">
+                        <template x-if="mode == 'monthly'">
+                            <div>
+                                <p class="text-sm font-light">Monthly rolling plan:</p>
+                                <div class="text-3xl font-bold">
+                                    $499 <span class="text-base font-normal">/ month</span>
+                                </div>
+
+                            </div>
+                        </template>
+                        <template x-if="mode == 'yearly'">
+                            <div>
+                                <p class="text-sm font-light">With yearly commitment:</p>
+                                <div class="text-3xl font-bold">
+                                    $333 <span class="text-base font-normal">/ month</span> <br>
+                                </div>
+                                <div class="text-lg font-bold text-gray-500">
+                                    $3,996 <span class="text-base font-normal">upfront</span>
+                                </div>
+                            </div>
+                        </template>
                     </div>
                 </div>
-            </div>
-            <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
-                <div class="p-6">
-                    <h3 class="mb-4 text-5xl font-extrabold leading-none">Enterprise</h3>
-                    <ul class="ml-4 space-y-1 list-disc">
-                        <li>Unlimited projects</li>
-                        <li>Unlimited hires</li>
-                        <li>Priority support</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-gray-100">
-                    <div class="text-3xl font-bold">
-                        $1,499 <span class="text-base font-normal">/month</span>
+                <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
+                    <div class="p-6">
+                        <h3 class="mb-4 text-5xl font-extrabold leading-none">Growth <br><span class="px-2 py-1 text-sm bg-yellow-300 rounded-full">Most popular</span></h3>
+                        <ul class="ml-4 space-y-1 list-disc">
+                            <li>3 projects</li>
+                            <li>3 hires</li>
+                            <li>Priority support</li>
+                        </ul>
                     </div>
-                    <p class="text-sm leading-relaxed">or</p>
-                    <div class="text-3xl font-bold">
-                        $1050-12,600 <br><span class="text-base font-normal">yearly / upfront</span>
+                    <div class="p-6 bg-gray-100">
+                        <template x-if="mode == 'monthly'">
+                            <div>
+                                <p class="text-sm font-light">Monthly rolling plan:</p>
+                                <div class="text-3xl font-bold">
+                                    $749 <span class="text-base font-normal">/ month</span>
+                                </div>
+                            </div>
+                        </template>
+                        <template x-if="mode == 'yearly'">
+                            <div>
+                                <p class="text-sm font-light">With yearly commitment:</p>
+                                <div class="text-3xl font-bold">
+                                    $500 <span class="text-base font-normal">/ month</span> <br>
+                                </div>
+                                <div class="text-lg font-bold text-gray-500">
+                                    $6,000 <span class="text-base font-normal">upfront</span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-between col-span-1 border-2 border-gray-200">
+                    <div class="p-6">
+                        <h3 class="mb-4 text-5xl font-extrabold leading-none">Enterprise</h3>
+                        <ul class="ml-4 space-y-1 list-disc">
+                            <li>Unlimited projects</li>
+                            <li>Unlimited hires</li>
+                            <li>Priority support</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-gray-100">
+                        <template x-if="mode == 'monthly'">
+                            <div>
+                                <p class="text-sm font-light">Monthly rolling plan:</p>
+                                <div class="text-3xl font-bold">
+                                    $1,499 <span class="text-base font-normal">/ month</span>
+                                </div>
+                            </div>
+                        </template>
+                        <template x-if="mode == 'yearly'">
+                            <div>
+                                <p class="text-sm font-light">With yearly commitment:</p>
+                                <div class="text-3xl font-bold">
+                                    $1,050 <span class="text-base font-normal">/ month</span> <br>
+                                </div>
+                                <div class="text-lg font-bold text-gray-500">
+                                    $12,600 <span class="text-base font-normal">upfront</span>
+                                </div>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
